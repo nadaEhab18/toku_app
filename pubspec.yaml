@@ -66,6 +66,7 @@ flutter:
     - assets/sounds/numbers/
     - assets/images/colors/
     - assets/sounds/colors/
+    - assets/sounds/phrases/
 
 
   #   - images/a_dot_ham.jpeg
