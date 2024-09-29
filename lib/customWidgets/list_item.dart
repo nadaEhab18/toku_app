@@ -13,12 +13,26 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: color,
+      decoration: BoxDecoration(
+        color: color,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 15.0,
+            spreadRadius: 5.0,
+            offset: Offset(
+              5.0,
+              5.0,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(12),
+      ),
       height: 100,
       child: Row(
         children: [
           Container(
-            color:  Color(0xffFEF6DB),
+            color:  Color(0xffFFF5CD),
             child: Image.asset(
               item.image,
             ),
@@ -32,13 +46,13 @@ class ListItem extends StatelessWidget {
                 Text(
                   item.jpName
                   ,style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xff151943),
                   fontSize: 18,
                 ),),
                 Text(
                   item.enName,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xff151943),
                     fontSize: 18,
                   ),),
               ],
@@ -48,7 +62,7 @@ class ListItem extends StatelessWidget {
          IconButton(onPressed: (){
            AudioCache player = AudioCache(prefix: 'assets/sounds/$itemType/');
 player.play(item.sound);
-         },icon: Icon(Icons.play_arrow,size: 32,color: Colors.white,),
+         },icon: Icon(Icons.play_arrow,size: 32,color: Color(0xff8EACCD),),
          )
         ],
       ),

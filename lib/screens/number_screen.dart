@@ -64,14 +64,13 @@ class NumberScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Numbers',
-            style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.brown,
+         // backgroundColor: Colors.brown,
         ),
         body: ListView.builder(
           itemCount: numbers.length,
           itemBuilder: (context, index) {
-            return ListItem(item: numbers[index],color: Colors.orange,
+            return ListItem(item: numbers[index],color: Color(0xffDEE5D4),
             itemType: 'numbers',);
           },
         ));

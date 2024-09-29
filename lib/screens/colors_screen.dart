@@ -45,28 +45,25 @@ class ColorsScreen extends StatelessWidget {
         image: 'assets/images/colors/yellow.png',
         jpName: 'Shiroi',
         enName: 'yellow'),
-
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Colors',
-          style: TextStyle(color: Colors.white),
+        appBar: AppBar(
+          title: Text(
+            'Colors',
+          ),
         ),
-        backgroundColor: Colors.brown,
-      ),
         body: ListView.builder(
           itemCount: colors.length,
           itemBuilder: (context, index) {
-            return ListItem(item: colors[index],color: Colors.purple,
+            return ListItem(
+              item: colors[index],
+              color: Color(0xffDEE5D4),
               itemType: 'colors',
             );
           },
         ));
-
-
   }
 }

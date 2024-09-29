@@ -50,15 +50,14 @@ class PhrasesScreen extends StatelessWidget {
             'Phrases',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.brown,
         ),
         body: ListView.builder(
           itemCount: phases.length,
           itemBuilder: (context, index) {
             return PhraseItem(
               phrase: phases[index],
-              color: Colors.blue,
-              itemType: 'Phases',
+              color: Color(0xffDEE5D4),
+              itemType: 'phases',
             );
           },
         ));

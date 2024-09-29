@@ -1,61 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:toku_app/customWidgets/category_item.dart';
+import 'package:toku_app/customWidgets/categoryItem.dart';
 import 'package:toku_app/screens/colors_screen.dart';
 import 'package:toku_app/screens/familyMembers_screen.dart';
 import 'package:toku_app/screens/number_screen.dart';
 import 'package:toku_app/screens/phrases_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFEF6DB),
       appBar: AppBar(
         title: Text(
-          'Toku',
-          style: TextStyle(color: Colors.white),
+          'Toku App',
         ),
-        backgroundColor: Colors.brown,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Category(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return NumberScreen();
-              }));
-            },
-            color: Colors.orange,
-            text: "Numbers",
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return NumberScreen();
+                    }));
+                  },
+                  child: CategoryItem(
+                      imageUrl: 'assets/images/numbers.png', title: 'Numbers')),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ColorsScreen();
+                    }));
+                  },
+                  child: CategoryItem(
+                      imageUrl: 'assets/images/colors.png', title: 'Colors')),
+            ],
           ),
-          Category(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return FamilyMembersScreen();
-              }));
-            },
-            color: Colors.green,
-            text: "Family Members",
+          SizedBox(
+            height: 30,
           ),
-          Category(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return ColorsScreen();
-              }));
-            },
-            color: Colors.purple,
-            text: "Colors",
-          ),
-          Category(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return PhrasesScreen();
-              }));
-            },
-            color: Colors.blue,
-            text: "Phrases",
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return FamilyMembersScreen();
+                    }));
+                  },
+                  child: CategoryItem(
+                      imageUrl: 'assets/images/family.png', title: 'Family')),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return PhrasesScreen();
+                    }));
+                  },
+                  child: CategoryItem(
+                      imageUrl: 'assets/images/phrases.png', title: 'Phrases')),
+            ],
           ),
         ],
       ),
