@@ -51,9 +51,37 @@ class ColorsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Colors',
-          ),
+            centerTitle: true,
+            title: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('C',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.amber.shade200
+                ),),
+                Text('O',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.green.shade200
+                ),),
+                Text('L',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.purpleAccent
+                ),),
+                Text('O',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.blueAccent.shade200
+                ),),
+                Text('R',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.amber.shade200
+                ),),
+                Text('S',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.green.shade200
+                ),),
+              ],
+            )
         ),
         body: ListView.builder(
           itemCount: colors.length,

@@ -1,4 +1,3 @@
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:toku_app/models/item.dart';
@@ -8,7 +7,11 @@ class ListItem extends StatelessWidget {
   final Color color;
   final String itemType;
   const ListItem({
-    Key? key, required this.item, required this.color, required this.itemType, }) : super(key: key);
+    Key? key,
+    required this.item,
+    required this.color,
+    required this.itemType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class ListItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            color:  Color(0xffFFF5CD),
+            color: Color(0xffFFF5CD),
             child: Image.asset(
               item.image,
             ),
@@ -44,26 +47,42 @@ class ListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  item.jpName
-                  ,style: TextStyle(
-                  color: Color(0xff151943),
-                  fontSize: 18,
-                ),),
+                  item.jpName,
+                  style: TextStyle(
+                    color: Color(0xff151943),
+                    fontSize: 18,
+                  ),
+                ),
                 Text(
                   item.enName,
                   style: TextStyle(
                     color: Color(0xff151943),
                     fontSize: 18,
-                  ),),
+                  ),
+                ),
               ],
             ),
           ),
           Spacer(),
-         IconButton(onPressed: (){
-           AudioCache player = AudioCache(prefix: 'assets/sounds/$itemType/');
-player.play(item.sound);
-         },icon: Icon(Icons.play_arrow,size: 32,color: Color(0xff8EACCD),),
-         )
+          IconButton(
+            onPressed: () {
+              AudioCache player =
+                  AudioCache(prefix: 'assets/sounds/$itemType/');
+              player.play(item.sound);
+            },
+            icon:  Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff8EACCD)),
+              child: Icon(
+                Icons.play_arrow,
+                color: Color(0xffFFF5CD),
+                size: 25,
+              ),
+            )
+          )
         ],
       ),
     );

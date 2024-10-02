@@ -46,10 +46,41 @@ class PhrasesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Phrases',
-            style: TextStyle(color: Colors.white),
-          ),
+          centerTitle: true,
+            title: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('P',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.amber.shade200
+                ),),
+                Text('H',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.green.shade200
+                ),),
+                Text('R',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.purpleAccent
+                ),),
+                Text('A',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.blueAccent.shade200
+                ),),
+                Text('S',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.amber.shade200
+                ),),
+                Text('E',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.green.shade200
+                ),),
+                Text('S',style: TextStyle(
+                    fontSize: 28,fontWeight: FontWeight.bold,
+                    color: Colors.purpleAccent
+                ),),
+              ],
+            )
         ),
         body: ListView.builder(
           itemCount: phases.length,

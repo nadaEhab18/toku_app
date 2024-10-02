@@ -12,8 +12,43 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Toku App',
+        centerTitle: true,
+        title:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'T',
+              style: TextStyle(
+              fontSize: 28,fontWeight: FontWeight.bold,
+              color: Colors.amber.shade200
+
+            ),
+            ),
+            Text(
+              'O',style: TextStyle(
+                fontSize: 28,fontWeight: FontWeight.bold,
+                color: Colors.green.shade200
+
+            ),
+
+            ),
+            Text(
+              'K',              style: TextStyle(
+                fontSize: 28,fontWeight: FontWeight.bold,
+                color: Colors.purpleAccent
+
+            ),
+
+            ),
+            Text(
+              'U',              style: TextStyle(
+                fontSize: 28,fontWeight: FontWeight.bold,
+                color: Colors.blueAccent.shade200
+
+            ),
+
+            ),
+          ],
         ),
       ),
       body: Column(

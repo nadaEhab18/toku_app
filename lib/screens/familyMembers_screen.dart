@@ -60,9 +60,37 @@ class FamilyMembersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Family Members',
-        ),
+          centerTitle: true,
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('F',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.amber.shade200
+              ),),
+              Text('A',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.green.shade200
+              ),),
+              Text('M',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.purpleAccent
+              ),),
+              Text('I',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent.shade200
+              ),),
+              Text('L',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.amber.shade200
+              ),),
+              Text('Y',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.green.shade200
+              ),),
+            ],
+          )
       ),
         body: ListView.builder(
       itemCount: familyMembers.length,

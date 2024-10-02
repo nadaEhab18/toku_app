@@ -62,9 +62,42 @@ class NumberScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Numbers',
-          ),
+          centerTitle: true,
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('N',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.amber.shade200
+              ),),
+              Text('U',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.green.shade200
+              ),),
+              Text('M',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.purpleAccent
+              ),),
+              Text('B',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent.shade200
+              ),),
+              Text('E',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.amber.shade200
+              ),),
+              Text('R',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.green.shade200
+              ),),
+              Text('S',style: TextStyle(
+                  fontSize: 28,fontWeight: FontWeight.bold,
+                  color: Colors.purpleAccent
+              ),),
+            ],
+          )
+
          // backgroundColor: Colors.brown,
         ),
         body: ListView.builder(

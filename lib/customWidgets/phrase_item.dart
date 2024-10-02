@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:toku_app/models/phrase.dart';
 
-class PhraseItem extends StatelessWidget {
+class PhraseItem extends StatefulWidget {
   final Phrase phrase;
   final Color color;
   final String itemType;
@@ -14,10 +14,17 @@ class PhraseItem extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<PhraseItem> createState() => _PhraseItemState();
+}
+
+class _PhraseItemState extends State<PhraseItem> {
+  bool isPressed = false;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: color,
+        color: widget.color,
         boxShadow: [
           BoxShadow(
             color: Colors.grey,
@@ -31,25 +38,60 @@ class PhraseItem extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(12),
       ),
-      height: 100,
+      height: 120,
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.all( 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  phrase.jpName,
+                  widget.phrase.jpName,
                   style: TextStyle(
                     color: Color(0xff151943),
-                    //blue.shade500,
                     fontSize: 18,
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/audio.png',
+                      height: 50,
+                      width: MediaQuery.of(context).size.width - 80,
+                      fit: BoxFit.fill,
+                      color: isPressed ? Color(0xff8EACCD) : Colors.grey.shade500,
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                          AudioCache player =
+                          AudioCache(prefix: 'assets/sounds/${widget.itemType}/');
+                          await player.play(widget.phrase.sound);
+                          setState(() {
+                            isPressed = true;
+                          });
+
+                      },
+                      icon: Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color(0xff8EACCD)),
+                        child: Icon(
+                          Icons.play_arrow,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                      ),
+
+                  ],
+                ),
+
                 Text(
-                  phrase.enName,
+                  widget.phrase.enName,
                   style: TextStyle(
                     color: Colors.blue.shade500,
                     //(0xff8EACCD),
@@ -59,26 +101,7 @@ class PhraseItem extends StatelessWidget {
               ],
             ),
           ),
-          Spacer(),
-          IconButton(
-            onPressed: () async {
-              try {
-                AudioCache player =
-                    AudioCache(prefix: 'assets/sounds/$itemType/');
-                await player.play(phrase.sound);
-              } catch (e) {
-                print('Error loading sound: $e');
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Failed to load sound')),
-                );
-              }
-            },
-            icon: Icon(
-              Icons.play_arrow,
-              size: 32,
-              color: Color(0xff8EACCD),
-            ),
-          )
+
         ],
       ),
     );
